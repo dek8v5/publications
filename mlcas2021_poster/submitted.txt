@@ -1,0 +1,54 @@
+From: Microsoft CMT <email@msr-cmt.org>
+Subject: Third International Workshop on Machine Learning for Cyber-Agricultural Systems : Submission (10) has been created.
+Date: October 12, 2021 at 10:11:22 CDT
+To: <kazict@missouri.edu>
+Reply-To: Microsoft CMT - Do Not Reply <noreply@msr-cmt.org>
+
+WARNING: This message has originated from an External Source. This may be a phishing expedition that can result in unauthorized access to our IT System. Please use proper judgment and caution when opening attachments, clicking links, or responding to this email.
+Hello,
+
+The following submission has been created.
+
+Track Name: MLCAS2021
+
+Paper ID: 10
+
+Paper Title: 3D plant morphology in the field: experiments with a consumer LiDAR device
+
+Abstract:
+see pdf below
+
+Created on: Tue, 12 Oct 2021 15:11:02 GMT
+
+Last Modified: Tue, 12 Oct 2021 15:11:02 GMT
+
+Authors:
+     - dek8v5@mail.missouri.edu (Primary)
+     - cnptp@missouri.edu 
+     - kazict@missouri.edu 
+
+Secondary Subject Areas: Not Entered
+Submission Files:     poster.pdf (9 Mb, Tue, 12 Oct 2021 15:07:40 GMT) 
+
+Submission Questions Response: Not Entered  
+
+
+Thanks,
+CMT team.
+
+
+
+
+
+Download the CMT app to access submissions and reviews on the move and receive notifications:
+https://apps.apple.com/us/app/conference-management-toolkit/id1532488001
+https://play.google.com/store/apps/details?id=com.microsoft.research.cmt
+
+To stop receiving conference emails, you can check the 'Do not send me conference email' box from your User Profile.
+
+Microsoft respects your privacy. To learn more, please read our Privacy Statement.
+
+Microsoft Corporation
+One Microsoft Way
+Redmond, WA 98052
+ 

@@ -1,0 +1,221 @@
+# this is ../b/artistry/papers/current/mlcas2021_poster/poster.org
+
+
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER: \usepackage[text={6.5in,9in},centering]{geometry}
+#+LATEX_HEADER: \usepackage{microtype}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage{newtxtext,newtxmath}
+#
+# #+LATEX_HEADER: \usepackage[reqno]{amsmath}
+# #+LATEX_HEADER: \usepackage{amsfonts,amssymb,amscd,mathtools,mathrsfs,bm}
+#
+#+LATEX_HEADER: \usepackage{cite,authblk}
+#+LATEX_HEADER: \usepackage{graphics,graphicx,rotating,xcolor,pgf,tikz,pgfplots}
+#+LATEX_HEADER: \usepackage{IEEEtrantools,multirow,float,booktabs,tabulary}
+#+LATEX_HEADER: \usepackage{xspace}
+#+LATEX_HEADER: \usepackage[nottoc,numbib]{tocbibind}
+#+LATEX_HEADER: \usepackage{species}
+
+
+
+
+# their header
+
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhead[LE,LO]{\textsc{EXTENDED ABSTRACT - MLCAS 2021 – ONLINE – 02 ~ 04.11.2021}}
+#+LATEX_HEADER: \fancyhead[RE,RO]{}
+#+LATEX_HEADER: \fancyfoot{}
+#+LATEX_HEADER: \renewcommand{\headrulewidth}{0pt}
+
+
+
+#+LATEX_HEADER: \usepackage{natbib}
+
+
+#+LATEX_HEADER: \def\lb#1{../../../../../../../home/dek8v5/Dropbox/graphos_reprints/references/bibliography/#1.bib}   
+#+LATEX_HEADER: \def\tlb#1{../../../../../../Dropbox/graphos_reprints/references/bibliography/#1.bib}   
+#+LATEX_HEADER: \def\gb#1{../../../../zu_lesen/references/bibliography/#1.bib}
+
+#+LATEX_HEADER: \def\bp{\tlb}
+
+
+
+
+
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+OPTIONS: title:nil author:nil date:nil
+
+#+LATEX_HEADER: \usepackage[colorlinks=true,urlcolor=violet,linkcolor=red,citecolor=blue]{hyperref}
+
+
+
+
+# chicago style, more or less, via biblatex (awful)
+#
+# http://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf
+
+# #+LATEX_HEADER: \usepackage{babel,csquotes,xpatch}
+# #+LATEX_HEADER: \usepackage[authoryear,backend=biber]{biblatex-chicago}
+# #+LATEX_HEADER: \providetoggle{blx@lang@captions@english}
+
+
+
+# #+LATEX_HEADER: \addbibresource{\bp{journals}}
+# #+LATEX_HEADER: \addbibresource{\bp{keys}}
+# #+LATEX_HEADER: \addbibresource{\bp{miscellaneous}}
+# # #+LATEX_HEADER: \addbibresource{\bp{clean-egbib}}
+# #+LATEX_HEADER: \addbibresource{\bp{all}}
+
+              
+
+
+
+
+
+# haven't found how to customize the title/author/etc for latex export from
+# org
+#
+# this doesn't work:
+# from https://emacs.stackexchange.com/questions/47347/customizing-org-latex-title-command-to-edit-title-page
+#
+# nor jiggling hyperref
+#
+# So just bang it in directly in latex
+#
+# Kazic, 1.10.2021
+
+#+begin_export latex
+
+% \title{\fontsize{14}{16} \selectfont \textbf{3D plant morphology in the field: experiments with a consumer LiDAR device}}
+\title{\huge{\textbf{3D plant morphology in the field: experiments with a consumer LiDAR device}}}
+\author{\fontsize{12}{14} \selectfont \textbf{Dewi Endah Kharismawati$^{\ast}$}}
+\author{\fontsize{12}{14} \selectfont \textbf{Chimdi Walter Ndubuisi}}
+\author{\fontsize{12}{14} \selectfont \textbf{Toni Kazic}}
+\affil{\emph{Dept.\, of Electrical Engineering and Computer Science, University of Missouri, Columbia, USA} \\
+\emph{Missouri Maize Center} \\
+\emph{Interdisciplinary Plant Group}}
+\maketitle
+\thispagestyle{fancy}
+
+\vspace{2cm}
+
+#+end_export
+
+
+
+# https://www.sascha-frank.com/latex-font-size.html
+
+
+
+# 3--5 keywords
+
+*Keywords:* 3D reconstruction, plant morphology, plant phenotyping, LiDAR, maize
+
+\vspace{1cm}
+*Abstract:*
+
+
+
+\cite{gollob2021}
+
+\vspace{1cm}
+
+# duh, why is the reference section coming out numbered?  it shouldn't!
+#
+# we'll have to bung in the bbl file at the end, that's the easiest
+#
+# Kazic, 1.10.2021
+
+#+BEGIN_EXPORT latex
+
+\renewcommand{\refname}{\bfseries\selectfont\normalsize References} 
+
+
+
+\bibliographystyle{chicago}
+
+\bibliography{\bp{journals},%
+              \bp{keys},%
+              \bp{miscellaneous},%
+              \bp{clean-egbib},%
+              \bp{all}}
+
+
+
+#+END_EXPORT
+
+
+
+* abstract :dewi: :noexport: 
+
+   + we would like to have another type of data for 3D reconstruction of
+     plant morphologies in the field to serve as ground truth --- tried
+     LiDAR based on previous work, especially in forests [refs]
+   + LiDAR gives dimensions directly, so the data could help scale
+     reconstructions from other data
+   + since good scanners are scarce and expensive, we tested a consumer grade LiDAR
+     scanner (2021 ipad pro)
+   + we explored different free apps, scaniverse and 3dscanner best
+   + we explored different procedures and distances for collecting the
+     reflections 
+   + we imaged plants with different fundamental architectures
+   + ``bushy'' plants reflect better than ``skinny'' plants --- e.g.,
+     soybeans, cocklebur /vs./ maize, consistent with forest canopy imagery 
+   + not as well as trees at breast height
+
+
+* figures  :dewi:                                                         :noexport:
+
+   + figures: meshlab for point clouds
+   + 3dscanner for rgb and point clouds
+   + weeds, soybeans, and maize
+   
+
+* references :toni:  :noexport: 
+
+read first and figure out relevance and what to say about them before horsing into jabref
+
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/lidar_for_vegetatn/schneider2014.pdf][schneider2014]] --- partial reconstructn forests, but imaging methods
+     don't apply to annuals
+   + [[file:../../../../../../Dropbox/graphos_reprints/image_processing/3d_reconstructn/gollob2021.pdf][gollob2021]] -- cite for sure
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/drone/guo2021.pdf][guo2021]]
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/lidar_for_vegetatn/sofonia2019.pdf][sofonia2019]]
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/lidar_for_vegetatn/lin2021.pdf][lin2021]]
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/lidar_for_vegetatn/christiansen2017.pdf][christiansen2017]]
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/lidar_for_vegetatn/shendryk2020.pdf][shendryk2020]] 
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/lidar_for_vegetatn/zhou2020b.pdf][zhou2020b]]
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/lidar_for_vegetatn/hu2020a.pdf][hu2020a]] ; hu2018a "geometrical path length distribution within the
+     crown to consider the clumping induced by crown shape and
+     landscape. However, within-crown leaf area density variation was not
+     completely addressed." 
+   + che2020 --- 3d maize plant reconstruction from rgb drone imagery
+   + [[https://www.sciencedirect.com/science/article/abs/pii/S0924271620303130][S. Jin, X. Sun, F. Wu et al.]], “Lidar sheds new light on plant
+phenomics for plant breeding and management: recent advances and future
+prospects,” ISPRS Journal of Photogrammetry and Remote Sensing, vol. 171,
+pp. 202–223, 2021.  pretty lightweight
+   + [[https://vision.eng.au.dk/future-cropping/uav_lidar/][Aarhus group]]
+
+
+
+   + [[file:../../../../../../Dropbox/graphos_reprints/phenotyping/lidar_for_vegetatn/yin2020.pdf][yin2020]]
+
+
+
+* mechanics :noexport:
+
+   + up to 2 p extended abstract, including figures, tables and
+     references. [[file:./MLCAS2021-template.docx][Extended abstract template in word]], [[file:./MLCAS2021-template.pdf][pdf]].
+   + can include figures
+   + due oct 1
+   + they take pdf!!!
+   + probably easiest is to write in org and then export to latex, and
+     configure a template preamble
+   + [[https://mlcas2021.github.io/][website]]
+   + [[../../done/posters/maize_mtg19/poster.org][poster with tikzposter]]
+   + [[https://tex.stackexchange.com/questions/516029/media9-is-becoming-obsolete-dec-2020-any-alternatives-for-embedding-video-audio/][video post-flash demise, scroll down]];  [[https://tex.stackexchange.com/questions/577986/alternatives-for-media9-after-dec-2020-in-overleaf][post media9]];  [[https://www.youtube.com/watch?v=y_N1A1yX0xg][beamer video in
+     2021]];  [[https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/media9/doc/media9.pdf][media9 2021]]
+   + Rumana also used ba4poster at one point
+   + [[http://tug.ctan.org/macros/latex/contrib/animate/animate.pdf][animate latex pkg]]

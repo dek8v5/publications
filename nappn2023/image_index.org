@@ -1,0 +1,14 @@
+# this is ../b/artistry/papers/current/posters/nappns/nappn2023/image_index.org
+
+this is a temporary file --- contents will be included in [[file:./nappan2023.org][nappn2023.org]]
+when the current version of that file is pushed up
+
+Kazic, 4.2.2023
+
+   + [[file:./images/leaf_jig.png][png of new leaf jig in shack]], cropped and exported from [[../../../../../../../c/maize/equipmt/photography/leaf_jig_shack_improved/IMG_5651.HEIC][jig.HEIC]].  13M
+
+   + [[file:./images/100mm_macrolens_platform_cropped.png][macrolens platform]], derived from [[file:../../../../../../../c/maize/equipmt/photography/iphone_imaging/images/100mm_macrolens_platform_cropped.png][cropped image of platform]].  7.9 M
+
+   + [[file:./images/19903_clip2_tk2.mp4][video leaf microscopy]], trimmed from [[file:../../../../../../../c/maize/images/22r/fon/micro_trials/ided_19903_clip.mp4][ided_19903_clip.mp4]], which in turn
+     is [[file:../../../../../../../c/maize/images/22r/fon/21.8/19903.MOV][19903.MOV]], which was renamed likely from IMG_5204.MOV in that
+     directory.      24 sec, 13M

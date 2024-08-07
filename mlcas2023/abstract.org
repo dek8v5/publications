@@ -1,0 +1,492 @@
+# this is ../b/artistry/papers/current/curent_papers/mlcas2023/abstract.org
+
+# #+title: Building 3D Models for Field-Grown Maize
+# #+title: Removing 3D point cloud outliers with Deep Learning
+# #+author: Dewi Endah Kharismawati and Toni Kazic 
+
+
+
+
+
+
+# ############ preamble for printed abstract per MLCAS #########################
+
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER: \usepackage[text={6.5in,9in},centering]{geometry}
+#+LATEX_HEADER: \usepackage{microtype}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage{newtxtext,newtxmath}
+#
+#+LATEX_HEADER: \usepackage{amsmath}
+# #+LATEX_HEADER: \usepackage{amsfonts,amssymb,amscd,mathtools,mathrsfs,bm}
+#
+#+LATEX_HEADER: \usepackage{cite,authblk}
+#+LATEX_HEADER: \usepackage{graphbox,graphics,graphicx,rotating,xcolor,pgf,tikz,pgfplots}
+#+LATEX_HEADER: \usepackage{IEEEtrantools,multirow,float,booktabs,tabulary}
+#+LATEX_HEADER: \usepackage{subcaption}
+#+LATEX_HEADER: \usepackage{xspace}
+#+LATEX_HEADER: \usepackage[nottoc]{tocbibind}
+# #+LATEX_HEADER: \usepackage{species}
+
+
+#+LATEX_HEADER: \def\mng#1{\Large{\textcolor{red}{\textbf{#1}}}}
+#+LATEX_HEADER: \def\toni#1{\textbf{\textcolor{red}{\emph{Toni:  #1}}}}
+#+LATEX_HEADER: \def\dewi#1{\textbf{\textcolor{red}{\emph{Dewi:  #1}}}}
+#+LATEX_HEADER: \def\deg{\mathrm{o}\xspace}
+#+LATEX_HEADER: \def\eg{\emph{e.g.}\xspace}
+#+LATEX_HEADER: \def\ie{\emph{i.e.}\xspace}
+#+LATEX_HEADER: \def\etc{\emph{etc.}\xspace}
+#+LATEX_HEADER: \def\colmap{\textsc{COLMAP}\xspace}
+#+LATEX_HEADER: \def\mesh{MeshLab\xspace}
+#+LATEX_HEADER: \def\clc{CloudCompare\xspace}
+#+LATEX_HEADER: \def\lab{$L^*a^*b^*$\xspace}
+#+LATEX_HEADER: \def\uav{\textsc{UAV}\xspace}
+#+LATEX_HEADER: \def\rgb{\textsc{RGB}\xspace}
+
+
+
+
+# their header
+
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhead[LE,LO]{\textsc{EXTENDED ABSTRACT - MLCAS 2023 – ONLINE – 03 \~{} 05.05.2023}}
+#+LATEX_HEADER: \fancyhead[RE,RO]{}
+#+LATEX_HEADER: \fancyfoot{}
+#+LATEX_HEADER: \renewcommand{\headrulewidth}{0pt}
+
+
+#+LATEX_HEADER: \usepackage{natbib}
+
+
+
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+OPTIONS: title:nil author:nil date:nil
+
+#+LATEX_HEADER: \usepackage[colorlinks=true,urlcolor=violet,linkcolor=red,citecolor=blue]{hyperref}
+
+
+
+# haven't found how to customize the title/author/etc for latex export from
+# org
+#
+# this doesn't work:
+# from https://emacs.stackexchange.com/questions/47347/customizing-org-latex-title-command-to-edit-title-page
+#
+# nor jiggling hyperref
+#
+# So just bang it in directly in latex
+#
+# Kazic, 1.10.2021
+
+
+
+
+
+
+
+
+# specify exact font size, rather than the descriptive sizes, per
+# https://www.sascha-frank.com/latex-font-size.html
+#
+# Kazic, 1.10.2021
+
+
+
+#+begin_export latex
+
+% \title{\fontsize{14}{16} \selectfont \textbf{3D plant morphology in the field: experiments with a consumer LiDAR device}}
+\title{\huge{\textbf{Building 3D Models of Field-Grown Maize}}}
+\author{\fontsize{12}{14} \selectfont \textbf{Dewi Endah Kharismawati$^{\ast}$}}
+% \author{\fontsize{12}{14} \selectfont \textbf{Chimdi Walter Ndubuisi}}
+\author{\fontsize{12}{14} \selectfont \textbf{Toni Kazic}}
+\affil{\emph{Dept.\, of Electrical Engineering and Computer Science, University of Missouri, Columbia, USA} \\
+\emph{Missouri Maize Center} \\
+\emph{Interdisciplinary Plant Group}}
+% \emph{Plant Science Foundry}}
+\maketitle
+\thispagestyle{fancy}
+
+\vspace{-1cm}
+
+#+end_export
+
+
+# 3--5 keywords
+
+*Keywords:* 3D reconstruction, plant morphology, high throughput phenotyping, maize,
+field crops
+
+
+
+
+*Abstract:* 
+#+latex: %
+Many morphological phenotypes are three dimensional and are not fully
+captured by planar projections.
+#+latex: %
+#+latex: %The digitalization of phenotyping through 3d reconstruction is essential
+#+latex: %for preserving the actual morphology of plants beyond its life span. 
+#+latex: %
+3D reconstruction would be ideal for capturing these phenotypes, but
+reconstruction of plants
+#+latex: %
+#+latex: % However, 3D reconstruction in plants
+#+latex: %
+is more challenging than hard surfaced, geometrically more regular objects
+due to their thinness, soft edges, and irregular shapes.
+#+latex: %
+Directly reconstructing field plants is even harder since they
+move easily with air currents, with different parts of the plants
+moving with different periods and amplitudes.
+#+latex: %
+Algorithmic 3D reconstruction is computationally expensive, leading to the
+adoption of more efficient and adaptive deep learning techniques.
+#+latex: %
+However, the point clouds used for training  must be of high quality.
+#+latex: %
+The available datasets in this domain commonly consist of potted plants
+captured indoors \citep{choudhury2020, artzet2019, wang2019b}.
+#+latex: %
+#+latex: % wu2020a, 
+#+latex: %
+These data do not reflect the challenges of real field
+conditions and networks trained on these data might not be transferable to
+field scenarios.
+
+
+
+
+
+
+Our goal is to reconstruct maize plant and organ morphology.
+#+latex: %
+In the 2021, 2022, and current 2023 field seasons, we planted selected
+maize lines in a triangular tiling, spacing them at radii of 3m (2021 season) or 4.6m
+(2022, 2023 seasons).
+#+latex: %
+#+latex: % This allows for  very low orbits around individual plants.
+#+latex: %
+Unmanned Aerial Vehicles (\uav)
+were flown at 1--2m distance with two different orbiting trajectories and
+#+latex: % to capture 360$^\deg$  videos
+camera poses to capture video.
+#+latex: %
+The first orbit was captured with a camera pose parallel to the
+plane of the soil, at approximately 1m above the soil (about half the plants'
+heights).
+#+latex: %
+The second orbit was captured at 2--3m with an oblique view
+(slightly higher than the plants).
+#+latex: %
+A portion of the tiling field is shown in Figure \ref{raw}.
+#+latex: %
+We used \colmap
+#+latex: %
+#+latex: % which incorporates an improved Structure from Motion (SfM)
+#+latex: % and a Multi-view Stereo (MVS) algorithms,
+#+latex: %
+to compute a dense 3D reconstruction of the entire tiling
+and individual plants (Figures \ref{recon} and \ref{poi})
+\citep{schoenberger2016}.
+#+latex: % colmap
+#+latex: %
+#+latex: % \colmap's state-of-the-art Structure from Motion (SfM) and Multi-view Stereo
+#+latex: % (MVS) were utilized to create dense reconstructions of the plants.
+#+latex: %
+#+latex: % Since \colmap captures all data it sees
+#+latex: %
+#+latex: % , including faraway objects (truck, sheds,
+#+latex: % \etc) and soil into the output 3D point clouds, so
+#+latex: % 
+We manually
+removed extraneous points from reconstructions of individual plants using
+\mesh \citep{cignoni2008}. 
+
+
+
+
+The 3D reconstructions are suprisingly good.  Figures \ref{recon} and \ref{poi}
+show the unimproved \colmap reconstructions of a portion of the tiling
+field and an individual plant.
+#+latex: %
+Two types of artifacts occur.
+#+latex: %
+The first type is voids in the reconstruction from gaps in the point cloud,
+highlighted in 
+Figure \ref{voids} as yellow pixels.
+#+latex: %
+#+latex: % (visualized in \clc using a uniform yellow background).
+#+latex: %
+#+latex: % Our experiments with reconstructing whole ranges (sets of adjacent rows) suggests that many of
+#+latex: %
+We are now testing how well 
+these gaps can be eliminated by adding trajectories that image the same region
+of the field within a narrow temporal interval and at multiple camera poses.
+#+latex: %
+The second is outliers of motion or color.  Motion outliers of the plant's
+organs are induced by air currents
+#+latex: %
+#+latex: % , either from ambient wind or backwash from the 
+#+latex: %  \uav propellers.  This motion
+#+latex: %
+and are visible
+as points scattered away from the main mass of the point clouds (Figure \ref{poi}) and as
+ghost organs (data not shown).  We
+computed a rough assessment of outliers using the $z_\text{score}$ defined
+as
+#+latex: $z_\text{score} = \frac{{x - \mu}}{{\sigma}}$,
+#+latex: %
+#+latex: %
+where $x$ is the pairwise distance between a point and its nearest
+neighbors, $\mu$ is the mean of the distances, and $\sigma$ is their standard
+deviation.
+#+latex: %
+The red motion outliers for an individual plant are shown in Figure \ref{red-out}.
+#+latex: %
+#+latex: % , producing double-tip leaves as seen in Figures \ref{tiling_n_poi}. 
+#+latex: %
+Color outliers reflect the color of the surrounding objects.  Two examples
+are soil-colored outliers in the bottom half of the point cloud (Figure
+\ref{poi}, in the space at the bottom of the plant) and sky-colored
+outliers surounding the tassels (Figures \ref{recon} and \ref{voids}).
+
+
+
+
+#+latex: %
+
+
+#+latex: % Real data from outdoor field introduces complex challenges, such
+#+latex: % as plant movements induced by wind and air wash from
+#+latex: %
+#+latex: % Some other form of outliers also
+#+latex: % manifested as scattered points located far from the main plants, and also
+#+latex: % outliers that identified by colors, such as sky-colored outliers surounding
+#+latex: % tassles and soil-colored surounding bottom half of the point cloud.  
+#+latex: %
+
+
+
+
+Removing these outliers is vital for better training data.
+#+latex: % to perform better surface reconstruction. 
+#+latex: %
+Figure \ref{tit} shows the result of manually removing most of just the motion
+outliers from the raw point cloud of Figure \ref{poi}, a slow process.
+#+latex: %
+#+latex: % This time-consuming process  can clearly produce a high quality, low motion point
+#+latex: % cloud.
+#+latex: %
+We are now comparing several outlier removal methods, including a distance statistical
+method using the $z_\text{score}$ and several deep learning approaches,
+such as \textsc{PointCleanNet} \citep{rakotosaona2019}.
+#+latex: %
+
+
+
+
+
+
+
+
+#+latex: % 0.28/0.3 = x/0.22
+
+#+begin_export latex
+
+\begin{figure}[H]
+\centering
+%
+% top row
+%
+% \begin{subfigure}[c]{0.28\textwidth}
+\begin{subfigure}[c]{0.205\textwidth}
+\includegraphics[width=1\linewidth]{./images/overall_raw_cropped.png}
+\caption{\label{raw} Raw \rgb frame.}
+\end{subfigure}
+%
+% \begin{subfigure}[c]{0.355\textwidth}
+\begin{subfigure}[c]{0.26\textwidth}
+\includegraphics[width=1\linewidth]{./images/overall_cropped.png}
+\caption{\label{recon} 3D tiling.}
+\end{subfigure}
+%
+% \begin{subfigure}[c]{0.325\textwidth}
+\begin{subfigure}[c]{0.238\textwidth}
+\includegraphics[width=1\linewidth]{./images/overall_voids_cropped.png}
+\caption{\label{voids} Voids (yellow).}
+\end{subfigure}
+%
+\\[3ex]
+%
+% bottom row
+%
+% \begin{subfigure}[c]{0.3\textwidth}
+\begin{subfigure}[c]{0.22\textwidth}
+\includegraphics[width=1\linewidth]{./images/plant_of_interest.png}
+\caption{\label{poi} 3D plant.}
+\end{subfigure}
+%
+% \begin{subfigure}[c]{0.297\textwidth}
+\begin{subfigure}[c]{0.218\textwidth}
+\includegraphics[width=1\linewidth]{./images/zoomed_with_red_outliers.png}
+\caption{\label{red-out} Outliers (red).}
+\end{subfigure}
+%
+% \begin{subfigure}[c]{0.28\textwidth}
+\begin{subfigure}[c]{0.205\textwidth}
+\includegraphics[width=1\linewidth]{./images/titivated.png}
+\caption{\label{tit} Manual cleaning.}
+\end{subfigure}
+%
+\caption{3D reconstructions and artifacts: a portion of the tiling field (top) and a plant of interest (bottom).}
+\label{tiling_n_poi}
+\end{figure}
+%
+#+end_export
+
+
+
+
+
+#+BEGIN_EXPORT latex
+
+\def\lb#1{../../../../../../../home/dek8v5/Dropbox/graphos_reprints/references/bibliography/#1.bib}   
+\def\tlb#1{../../../../../../Dropbox/graphos_reprints/references/bibliography/#1.bib}   
+\def\gb#1{../../../../zu_lesen/references/bibliography/#1.bib}
+
+\def\bp{\tlb}
+
+\renewcommand{\refname}{\bfseries\selectfont\normalsize References} 
+
+\normalsize
+
+\bibliographystyle{chicago-ff}
+
+\bibliography{\bp{journals},%
+              \bp{keys},%
+              \bp{miscellaneous},%
+%              \bp{clean-egbib},%
+              \bp{all}}
+
+
+
+#+END_EXPORT
+
+
+
+
+
+** notes :noexport:
+
+#+begin_export latex
+\begin{equation}
+z_\text{score} = \frac{{x - \mu}}{{\sigma}} \nonumber
+\end{equation}
+#+end_export   
+
+- show the accuracy: 
+    + outliers with respect to all points
+    + outliers with respect to ground truth
+
+
+It is important to note that the ground truth were generated by manually
+cleaning the 3D point cloud obtained from Colmap by hand using Meshlab.  
+
+
+   
+The
+results obtained from the experiment shows significant improvements in the
+quality of point clouds (I hope). 
+
+- we have distance  done, but very very simple (if we wanna include,
+  can do color based too)
+    + how many standard deviation a point cloud is from the mean of all the
+      distances. 
+    + computation is using open3d
+    + distance is computed using nearest neighbor 
+   
+
+- explain more about the deep learning based outliers removal (preferably
+  that has github ready)
+    + PointCleanNet \citep{rakotosaona2019}: [[https://arxiv.org/pdf/1901.01060.pdf][paper lnk]]
+    + github repo: https://github.com/mrakotosaon/pointcleannet
+    + Outliers-contaminated data affect downstream 3d point cloud
+      applications. 
+    + noisy input and will output outlier-free version
+    + model were trained using a large dataset of synthetic point cloud
+      with ground truth (clean version)
+    + network architecture include: encoding (extract hierarcy features)
+      then decoding (generate clean output). They have novel loss function
+      that combines reconstruction loss (clean vs ground truth) and
+      consistency loss (local geometric coherence between neighboring
+      points for smoothness and artifact reduction).  
+
+- explain more about the normals refinement (preferably the one that has
+  github ready too)
+
+
+
+
+# * Dewi's first pass outline
+# - We want to digitalize phenotyping through plant 3d reconstruction.
+# - With 3D we can keep the actual shape and morphology of the plants
+#   forever. 
+#
+# -  Plants are thin, soft, and wobbly. 3d reconstruction in plants are a lot more challenging than regular objects.. 
+# 
+# - 3d reconstruction is such a computationally expensive and time consuming
+#   process. Therefore, we want to train a model using deep learning for 3d
+#   reconstruction. And we need a good quality of point cloud to train the
+#   network with. 
+# 
+# - we want corn morphology: tassel, leaves, stem, ears, visible roots. 
+# 
+# - There is no widely available data. Common data are potted plants inside
+#   and very well behaved dataset taken in a 3d photobooth using mounted
+#   multiple camera or turn table. However, real challenges
+#   were not present in such data. The model trained in this data will not
+#   greately transferable to real data that were captured in real field. 
+# 
+# - Our data were collected from a tiling field, where plants were planted
+#   15ft apart. 
+# 
+# - We are using UAV to capture videos orbitting 360 degree around plant. 
+# 
+# - Two flight trajectories for each plant. The first orbit is with dead-on
+#   camera view with 3 ft altitude above soil (approximately half of the
+#   plants height). Then the second orbit is 7-10ft with oblique camera view (slightly higher 
+#   than plants).
+# 
+# - With such real data comes real challenges, such as plant movements
+#   stimulated by wind and air wash form propelers. This movements create
+#   outliers in the reconstruction. 
+# 
+# - We are using colmap's Structure from Motion (SfM) and Multiview Stereo
+#   (MVS) to create the plant's dense reconstruction. 
+#  
+# - colmap converted everything it sees into point clouds, that includes
+#   far away objects, soil, and building. 
+# 
+# - we want only the center plant we orbit, so we crop and remove unrelated
+#   object (like soil) manually. 
+# 
+# - the biggest problem we have is point cloud outliers. Some are scatter far
+#   away from the main plant, and some outliers are indetifyable by
+#   colors. Like bly sky point clouds surrounded tassle, those are from the
+#   sky. And some brown on the edge of plant middle to bottom part, those are
+#   outliers from the soil. And outliers that were introduced by leaves
+#   movement that form solid double tip leaves. 
+# 
+# - we want to remove these outliers to boost the quality of the point
+#   clouds, so we will get a better surface. 
+# 
+# - we are removing outliers with deep learning.
+# 
+# - and compare with removal with normals refinement. 
+# 
+# - result are pretty good. 
+# 
+# - we have limited dataset. The ground truth were created by manually
+#  cleaning the 3d point clouds from colmap with hands on meshlab. 

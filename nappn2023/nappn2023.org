@@ -1,0 +1,143 @@
+# this is ../b/artistry/papers/current/posters/nappns/nappn2023/nappn2023.org
+#+title: Imaging Maize Lesions
+#+author: Chimdi Walter Ndubuisi$^\ast$, Dewi Endah Kharismawati$^\ast$, and Toni Kazic
+#+date: <2023-01-27 Fri>
+
+
+
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER: \usepackage[text={6.5in,9in},centering,includehead,nomarginpar]{geometry}
+#+LATEX_HEADER: \usepackage{fancyhdr}
+
+#+options: toc:nil
+
+
+
+
+
+# use headings: https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers
+# suppress page number:  https://tex.stackexchange.com/questions/7355/how-to-suppress-page-number
+
+#+begin_export latex
+\pagenumbering{gobble}
+\thispagestyle{headings}
+\markright{\hfill \textsc{North American Plant Phenotyping Meeting, February, 2023}}
+\renewcommand{\headrulewidth}{0.5pt}
+#+end_export
+
+* mechanics
+
+   + word template for abstracts
+   + chimdi needs an orcid id: 0000-0003-3277-4206
+   + [[https://www.authorea.com/][submit pdf here]]
+   + gotta decide on fast-forward aka lightning talk or poster
+   + fast-forward talk can be live --- in person --- or virtual --- prerecorded
+
+
+
+
+   
+* text submitted in the word doc version of abstract
+
+The maize disease lesion mimic mutants spontaneously form lesions on leaf
+blades and sheaths that strongly resemble the plant's responses to pathogen
+infection. Variations in lesion morphology, spatiotemporal distribution,
+and sensitivity to genetic background and weather make them ideal
+candidates to develop high throughput and high resolution phenotyping
+methods for individual plants and their organs in unstructured fields. We
+present three approaches to imaging lesions at different phenotyping scales
+and image resolution. Each strategy has distinct advantages and poses
+unique collection and computational challenges. The first is imaging
+individual leaves /ex situ/ before sexual maturity using reflected light. The
+challenge is to identify leaves while the lesions are sufficiently
+separated for easier segmentation, yet numerous enough for good sample size
+and mature enough to display the range of lesion developmental stages. This
+is a moderate throughput, moderate resolution strategy. The second is to
+image plants using UAVs /in situ/. The challenges are to fly low enough for
+good lesion resolution while minimizing extraneous movement and to register
+individual plants and their leaves during the growing season. This is a
+high throughput, lower to moderate resolution strategy. The third is to
+image lesions using after-market lenses on cell phones /in situ/. The
+challenges are to capture the same region of the leaves over time without
+interfering with lesion formation and to mosaic the imagery of highly
+repetitive surface features into a summary view for registration. This is a
+low throughput, high resolution strategy.
+
+   
+* original
+
+# 247 words
+
+# for fast forward/lightning talk, which can be virtual, at
+# https://www.plantphenotyping.org/conference/research-submissions
+#
+# due date is oct 3, monday
+# word for abstracts, bah humbug, get the template
+
+  
+The maize disease lesion mimic mutants spontaneously form lesions on leaf
+blades and sheaths that strongly resemble the plant's responses to pathogen
+infection.  Variations in lesion morphology, spatiotemporal distribution,
+and sensitivity to genetic background and weather make them ideal
+candidates to develop high throughput and high resolution phenotyping
+methods for individual plants and their organs in unstructured fields.
+We present three approaches to imaging lesions at different
+phenotyping scales and image resolution.  Each strategy has distinct
+advantages and poses unique collection and computational challenges. The
+first is imaging individual leaves /ex situ/ before sexual maturity using
+reflected light.  The challenge is to identify leaves while the
+lesions are sufficiently separated for easier segmentation, yet numerous
+enough for good sample size and mature enough to display the range of
+lesion developmental stages.  This is a moderate throughput, moderate
+resolution strategy. The second is to image plants using UAVs /in situ/.
+The challenges are to fly low enough for good lesion resolution while
+minimizing extraneous movement and to register individual plants and their
+leaves during the growing season.  This is a high throughput, lower to
+moderate resolution strategy. The third is to image lesions using
+after-market lenses on cell phones /in situ/.  The challenges are to
+capture the same region of the leaves over time without interfering with
+lesion formation and to mosaic the imagery of highly repetitive surface
+features into a summary view for registration.  This is a low throughput,
+high resolution strategy.
+
+
+
+
+
+
+
+
+\vspace{1cm}
+\noindent
+$^\ast\textrm{These authors contributed equally.}$
+
+
+* word wrapped, 243 words: [[file:./abstract.docx][word version on their template]]
+
+The maize disease lesion mimic mutants spontaneously form lesions on leaf blades and sheaths that strongly resemble the plant's responses to pathogen infection.  Variations in lesion morphology, spatiotemporal distribution, and sensitivity to genetic background and weather make them ideal candidates to develop high throughput and high resolution phenotyping methods for individual plants and their organs in unstructured fields.  We present three approaches to imaging lesions at different phenotyping scales and image resolution.  Each strategy has distinct advantages and poses unique collection and computational challenges. The first is imaging individual leaves /ex situ/ before sexual maturity using reflected light.  The challenge is to identify leaves while the lesions are sufficiently separated for easier segmentation, yet numerous enough for good sample size and mature enough to display the range of lesion developmental stages.  This is a moderate throughput, moderate resolution strategy. The second is to image plants using UAVs /in situ/.  The challenges are to fly low enough for good lesion resolution while minimizing extraneous movement and to register individual plants and their leaves during the growing season.  This is a high throughput, lower to moderate resolution strategy. The third is to image lesions using after-market lenses on cell phones /in situ/.  The challenges are to capture the same region of the leaves over time without interfering with lesion formation and to mosaic the imagery of highly repetitive surface features into a summary view for registration.  This is a low throughput, high resolution strategy.
+
+  
+
+
+
+
+
+  
+
+  
+* old mechanics from last year                                     :noexport:
+
+   + [[https://www.plantphenotyping.org/conference/research-submissions][submission types]]
+   + [[https://www.plantphenotyping.org/conference/research-submissions][lightning talk abstract]], 250 words, 1 slide, 1', will be archived in ESOSAR
+   + [[https://estore.uga.edu/C27063_ustores/web/store_cat.jsp?CATID=1513&STOREID=458][virtual registration for graduate students is $100]]
+   + YOLO distinguishes maize from weeds
+   
+
+
+[[https://www.plantphenotyping.org/conference/research-submissions][nappn submission types]]
+
+[[https://www.essoar.org/action/oauth/orcid][essoar]]
+  
+
+
+
